@@ -22,23 +22,31 @@ $(document).ready(function() {
             if("copyright" in result) {
                 $("#copyright").text("Image Credits: " + result.copyright);
                 }
-                else {
+            else {
                 $("#copyright").text("Image Credits: " + "Public Domain");
-                }
+            }
                 
-                if(result.media_type == "video") {
+            if(result.media_type == "video") {
                 $("#apod_img_id").css("display", "none"); 
                 $("#apod_vid_id").attr("src", result.url);
                 }
-                else {
+            else {
                 $("#apod_vid_id").css("display", "none"); 
                 $("#apod_img_id").attr("src", result.url);
-                }
-                $("#apod_date").text(result.date);
-                // $("#reqObject").text(url);
-                $("#returnObject").text(JSON.stringify(result, null, 4));  
-                $("#apod_explaination").text(result.explanation);
-                $("#apod_title").text(result.title)
+            }
+            $("#apod_date").text(result.date);
+            // $("#reqObject").text(url);
+            // $("#returnObject").text(JSON.stringify(result, null, 4));  
+            // $("#apod_explaination").text(result.explanation);
+            // $("#apod_title").text(result.title)
+            var myDivCard = $("<div>");
+            myDivCard.addClass("card");
+            // var myDivCardHead = $("<div>");
+            var myDivCardBody = $("<div>");
+            myDivCardBody.addClass("card-body")
+            $(".cards-here").append(myDivCard);
+            $(".cards-here").append(myDivCardBody);
+
         });
       });
 });
